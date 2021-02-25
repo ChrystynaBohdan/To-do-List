@@ -1,0 +1,8 @@
+.taskinput{
+    width: 50vw;
+    display: flex;
+    margin-bottom: 20px;
+}
+.input{
+    flex-grow: 1;
+}
