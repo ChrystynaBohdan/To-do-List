@@ -1,5 +1,7 @@
 import {createStore} from "redux";
 
-let store = createStore();
+function reducer() {}
+
+let store = createStore(reducer);
 
 export default store;
