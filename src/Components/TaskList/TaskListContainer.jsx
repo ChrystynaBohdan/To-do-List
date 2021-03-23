@@ -1,12 +1,14 @@
 import React from 'react';
 import TaskList from "./TaskList";
 import {connect} from "react-redux";
-import {addNewTaskCreator, clearTaskCreator} from "../../Redux/Actions";
+import {addNewTaskCreator, clearTaskCreator, loadingCreator} from "../../Redux/Actions";
+import {request} from "../../fakebackend";
 
 
 let mapStateToProps = (state) => {
     return {
-        tasks: state.tasks
+        tasks: state.tasks,
+        loading: state.loading,
     }
 }
 
@@ -16,7 +18,11 @@ let mapDispatchToProps = (dispatch) => {
             dispatch(addNewTaskCreator(name))
         },
         clear: () => {
-            dispatch(clearTaskCreator())
+            dispatch(loadingCreator())
+
+            request().then(() => {
+                dispatch(clearTaskCreator())
+            })
         }
     }
 }

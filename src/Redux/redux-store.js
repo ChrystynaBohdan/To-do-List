@@ -1,8 +1,9 @@
 import {createStore} from "redux";
-import {ADD_NEW_TASK, CLEAR_TASK} from "./Actions";
+import {ADD_NEW_TASK, CLEAR_TASK, LOADING} from "./Actions";
 
 
 const initialState = {
+    loading: false,
     test: true,
     tasks: [
         {
@@ -35,6 +36,12 @@ function reducer(state = initialState, action) {
             return {
                 ...state,
                 tasks: [],
+                loading: false,
+            }
+        case LOADING:
+            return {
+                ...state,
+                loading: true,
             }
         default:
             return state;
