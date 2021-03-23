@@ -7,7 +7,7 @@ const TaskList = (props) => {
     const tasksElements = props.tasks.map((task) => <Task name={task.name} checked={task.checked}/>)
     return <div className={styles.list}>
         {tasksElements}
-
+        <button onClick={props.clear}>Clear</button>
     </div>
 }
 
